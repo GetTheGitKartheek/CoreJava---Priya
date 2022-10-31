@@ -1,0 +1,84 @@
+import java.sql.Time;
+import java.util.Date;
+import java.util.List;
+
+public class seating {
+    public enum SeatStatus {
+        SEAT_BOOKED,
+        SEAT_NOT_BOOKED;
+    }
+
+    public enum SeatAvailability {
+        Seat_Available,
+        Seat_NotAvailable;
+    }
+
+    public enum CollageType {
+        ENGINEERING,
+
+    }
+
+    public enum SeatType {
+        MERIT,
+        RESERVATION,
+        MANAGEMENT,
+        RECOMMENDATION;
+    }
+
+    public enum ApplicationStatus {
+        PAID_SUBMITTED,
+        NO_SHOW;
+    }
+
+    class User {
+
+        int userId;
+        String name;
+        Date dateOfBirth;
+        String mobNo;
+        String emailId;
+        String sex;
+        String fathersName;
+        String mothersName;
+        String address;
+        String marksObtainedInXIIStd;
+
+    }
+
+    class Courses {
+
+        int courseId;
+        int CollageId;
+
+    }
+
+   static class collages {
+
+        int collageId;
+        String collageName;
+        Address address;
+
+        List<Courses> Courses;
+        float rating;
+    }
+
+    class Booking {
+        int bookingId;
+        int userId;
+        int courseId;
+        List<Courses> bookedSeats;
+        int amount;
+        ApplicationStatus status_of_payment;
+        Date submitted_date;
+        Time application_timing;
+    }
+
+    static class Address {
+
+        String city;
+        String pinCode;
+        String state;
+        String streetNo;
+        String landmark;
+    }
+}
