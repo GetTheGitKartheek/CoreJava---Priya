@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class college_admission {
+    public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Please enter your CGPA : ");
+        double cgpa = keyboard.nextDouble();
+        System.out.println("Please enter your college admission test score (0-100): ");
+        double score = keyboard.nextDouble();
+        if (cgpa >= 9.5) {
+            if (score >= 95)
+                System.out.println("You are accepted! You can admit this college.");
+            else
+                System.out.println("You are not accepted! Sorry, you can't admit this college.");
+            {
+                if (cgpa >= 8.5) {
+
+                    if (score >= 85)
+                        System.out.println("You are accepted! You can admit this college.");
+                    else
+                        System.out.println("You are not accepted! Sorry, you can't admit this college.");
+                    if (cgpa >= 7.5) {
+
+                        if (score >= 75)
+                            System.out.println("You are accepted! You can admit this college.");
+                        else
+                            System.out.println("You are not accepted! Sorry, you can't admit this college.");
+                    } else if (score >= 95)
+                        System.out.println("You are accepted! You can admit this college.");
+                }
+            }
+        }
+    }
+}
