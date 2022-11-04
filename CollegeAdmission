@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class college_admission {
+public class CollegeAdmission {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Please enter your CGPA : ");
