@@ -1,37 +1,31 @@
-import java.util.*;
-
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 class Students {
-    public int id;
+    public int studentId;
     public String studentName;
     public String registrationNo;
     public double cgpa;
     public String city;
-    public String gender;
-
-    public static int count = 0;
-
-
-    public Students(int id,String registrationNo,String studentName,double cgpa,String city,String gender )
-    {
-        super();
-        this.id = id;
+    public String collegeName;  // Initially store as empty
+    public String departmentName; // Initially store as empty
+    Students(int studentId, String studentName, String registrationNo, double cgpa,  String city,String collegeName,String departmentName) { //constructor
+        this.studentId = studentId;
         this.studentName = studentName;
-        this.gender = gender;
         this.registrationNo = registrationNo;
         this.cgpa = cgpa;
         this.city = city;
-        count++;
-
+        this.collegeName=collegeName;
+        this.departmentName=departmentName;
     }
 
-    public int getId() {
-        return id;
+    public int getStudentId() {
+        return studentId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
     }
 
     public String getStudentName() {
@@ -66,46 +60,34 @@ class Students {
         this.city = city;
     }
 
-    public String getGender() {
-        return gender;
+    public String getCollegeName() {
+        return collegeName;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
     }
 
-    public static int getCount() {
-        return count;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public static void setCount(int count) {
-        Students.count = count;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
-
 }
 
-//college add
-class Colleges {
-    public int id;
+class College{
     public String collegeName;
-    public String locationOfTheCollege;
+    public String departmentName;
+    public int seatCount;
+    public double collegeCgpa;
 
-    public static int count = 0;
-
-    public Colleges(int id, String collegeName, String locationOfTheCollege) {
-        super();
-        this.id = id;
-        this.collegeName = collegeName;
-        this.locationOfTheCollege = locationOfTheCollege;
-        count++;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    College(String collegeName,String departmentName,int seatCount,double collegeCgpa){
+        this.collegeName=collegeName;
+        this.departmentName=departmentName;
+        this.seatCount=seatCount;
+        this.collegeCgpa=collegeCgpa;
     }
 
     public String getCollegeName() {
@@ -116,226 +98,193 @@ class Colleges {
         this.collegeName = collegeName;
     }
 
-    public String getLocationOfTheCollege() {
-        return locationOfTheCollege;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setLocationOfTheCollege(String locationOfTheCollege) {
-        this.locationOfTheCollege = locationOfTheCollege;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
-    public static int getCount() {
-        return count;
+    public int getSeatCount() {
+        return seatCount;
     }
 
-    public static void setCount(int count) {
-        Colleges.count = count;
+    public void setSeatCount(int seatCount) {
+        this.seatCount = seatCount;
     }
 
-
-}
-// Depart
-class Departments {
-    public String mechDepartment;
-    public int mechDeptSeatCount;
-    public double mechCgpa;
-    public String civilDepartment;
-    public int civilDeptSeatCount;
-    public double civilCgpa;
-    public String electricalDepartment;
-    public int electricalDeptSeatCount;
-    public double electricalCgpa;
-    public String itDepartment;
-    public int itDeptSeatCount;
-
-    public double itCgpa;
-
-
-    public static int count = 0;
-
-    public Departments(String mechDepartment, int mechDeptSeatCount, double mechCgpa, String civilDepartment, int civilDeptSeatCount, double civilCgpa, String electricalDepartment, int electricalDeptSeatCount, double electricalCgpa, String itDepartment, int itDeptSeatCount, double itCgpa) {
-        super();
-        this.mechDepartment = mechDepartment;
-        this.mechDeptSeatCount = mechDeptSeatCount;
-        this.mechCgpa = mechCgpa;
-        this.civilDepartment = civilDepartment;
-        this.civilCgpa = civilCgpa;
-        this.electricalCgpa = electricalCgpa;
-        this.itCgpa = itCgpa;
-        this.civilDeptSeatCount = civilDeptSeatCount;
-        this.electricalDepartment = electricalDepartment;
-        this.electricalDeptSeatCount = electricalDeptSeatCount;
-        this.itDepartment = itDepartment;
-        this.itDeptSeatCount = itDeptSeatCount;
-
-        count++;
-
+    public double getCollegeCgpa() {
+        return collegeCgpa;
     }
 
-    public String getMechDepartment() {
-        return mechDepartment;
-    }
-
-    public void setMechDepartment(String mechDepartment) {
-        this.mechDepartment = mechDepartment;
-    }
-
-    public int getMechDeptSeatCount() {
-        return mechDeptSeatCount;
-    }
-
-    public void setMechDeptSeatCount(int mechDeptSeatCount) {
-        this.mechDeptSeatCount = mechDeptSeatCount;
-    }
-
-    public double getMechCgpa() {
-        return mechCgpa;
-    }
-
-    public void setMechCgpa(double mechCgpa) {
-        this.mechCgpa = mechCgpa;
-    }
-
-    public String getCivilDepartment() {
-        return civilDepartment;
-    }
-
-    public void setCivilDepartment(String civilDepartment) {
-        this.civilDepartment = civilDepartment;
-    }
-
-    public int getCivilDeptSeatCount() {
-        return civilDeptSeatCount;
-    }
-
-    public void setCivilDeptSeatCount(int civilDeptSeatCount) {
-        this.civilDeptSeatCount = civilDeptSeatCount;
-    }
-
-    public double getCivilCgpa() {
-        return civilCgpa;
-    }
-
-    public void setCivilCgpa(double civilCgpa) {
-        this.civilCgpa = civilCgpa;
-    }
-
-    public String getElectricalDepartment() {
-        return electricalDepartment;
-    }
-
-    public void setElectricalDepartment(String electricalDepartment) {
-        this.electricalDepartment = electricalDepartment;
-    }
-
-    public int getElectricalDeptSeatCount() {
-        return electricalDeptSeatCount;
-    }
-
-    public void setElectricalDeptSeatCount(int electricalDeptSeatCount) {
-        this.electricalDeptSeatCount = electricalDeptSeatCount;
-    }
-
-    public double getElectricalCgpa() {
-        return electricalCgpa;
-    }
-
-    public void setElectricalCgpa(double electricalCgpa) {
-        this.electricalCgpa = electricalCgpa;
-    }
-
-    public String getItDepartment() {
-        return itDepartment;
-    }
-
-    public void setItDepartment(String itDepartment) {
-        this.itDepartment = itDepartment;
-    }
-
-    public int getItDeptSeatCount() {
-        return itDeptSeatCount;
-    }
-
-    public void setItDeptSeatCount(int itDeptSeatCount) {
-        this.itDeptSeatCount = itDeptSeatCount;
-    }
-
-    public double getItCgpa() {
-        return itCgpa;
-    }
-
-    public void setItCgpa(double itCgpa) {
-        this.itCgpa = itCgpa;
-    }
-
-    public static int getCount() {
-        return count;
-    }
-
-    public static void setCount(int count) {
-        Departments.count = count;
+    public void setCollegeCgpa(double collegeCgpa) {
+        this.collegeCgpa = collegeCgpa;
     }
 }
+
+
 public class Student {
-    public static void main(String[] args) throws Exception {
-        List<Students> studentList = new ArrayList<>();
-        studentList.add(new Students(1, "123456", "Saravana", 9.7, "Chennai", "M"));
-        studentList.add(new Students(2, "234567", "Sireesha", 8.0, "Mumbai", "F"));
-        studentList.add(new Students(3, "345678", "Kartheek", 5.9, "Hyderabad", "M"));
-        studentList.add(new Students(4, "456789", "Swetha", 7.8, "Chennai", "F"));
+    public static void main(String[] args) {
+        List<Students> addStudent = new ArrayList<Students>(); // case 1 use
+        List<College> addCollege = new ArrayList<College>(); // case 2 use
 
-        for (Students s : studentList) //Iterates as long as there are elements in the list. An object s is created of type Employee class.
+        //Case 1
+        Scanner s = new Scanner(System.in);
+        Scanner s1 = new Scanner(System.in);
+        Scanner s2 = new Scanner(System.in);
+        Scanner s3 = new Scanner(System.in);
+        Scanner s4 = new Scanner(System.in);
+
+        //Case 2
+        Scanner s5 = new Scanner(System.in);
+        Scanner s6 = new Scanner(System.in);
+        Scanner s7 = new Scanner(System.in);
+        Scanner s8 = new Scanner(System.in);
+
+        //Case 3
+        Scanner s9 = new Scanner(System.in);
+        Scanner s10 = new Scanner(System.in);
+        Scanner s11 = new Scanner(System.in);
+
+        int ch;
+     //   do
+        for (int c=0;c<=100;c++)
         {
-            System.out.print("ID, studentName, cgpa, city,gender : ");
-            System.out.println(s.getId() + " " + s.getRegistrationNo() + " " + s.getStudentName() + " " + s.getCgpa() + " " + s.getCity() + " " + s.getGender());
-        }
+            System.out.println("****************Engineering Counselling System**********");
+            System.out.println("1.Add Student Details: ");
+            System.out.println("2.Add College details: ");
+            System.out.println("3.Enter Counselling select college: ");
+            System.out.println("4 Exit");
+            System.out.println("Enter Your Choice:");
+
+            ch = s.nextInt();
+
+            switch (ch) {
+
+                case 1:
+
+                    System.out.print("Enter Student Id :");
+                    int studentId = s.nextInt();
+                    System.out.print("Enter Student Name : ");
+                    String studentName = s1.nextLine();
+                    System.out.print("Enter CGPA:");
+                    Double cgpa = s2.nextDouble();
+                    System.out.println("Enter Registration No:");
+                    String registrationNo = s3.nextLine();
+                    System.out.println("Enter City:");
+                    String city = s4.nextLine();
+                    addStudent.add(new Students(studentId, studentName, registrationNo, cgpa, city, "", ""));
+                    System.out.println("-----Successfully saved student records----");
+                    System.out.println("------------------");
+                    System.out.println("---ALL STUDENT RECORD");
+                    for (int i = 0; i < addStudent.size(); i++) {
+                        System.out.println("Student Id :" + addStudent.get(i).studentId + " Student Name:" + addStudent.get(i).studentName);
+                    }
+
+                    break;
+                case 2:
+                    System.out.println("-----case 2----");
+                    System.out.print("Enter College Name : ");
+                    String collegeName = s5.nextLine();
+                    System.out.print("Enter Department Name : ");
+                    String departmentName = s6.nextLine();
+                    System.out.print("Enter Seat Count : ");
+                    int seatCount = s7.nextInt();
+                    System.out.print("Enter College CGPA : ");
+                    double collegeCgpa = s8.nextDouble();
+                    addCollege.add(new College(collegeName, departmentName, seatCount, collegeCgpa));
+                    System.out.println("-----Successfully saved In College records----");
+                    System.out.println("---ALL COLLEGE RECORD------");
+                    for (int i = 0; i < addCollege.size(); i++) {
+                        System.out.println("College Name :" + addCollege.get(i).collegeName + " Department Name:" + addCollege.get(i).departmentName);
+                    }
+                    break;
+                case 3:
+                    System.out.println("----Counselling Started----");
+                    System.out.print("Enter Student Id :");
+                    int studentIds = s9.nextInt();
+                    double studentCgpa = 0.0;
+                    //Display Student Info
+                    for (int i = 0; i < addStudent.size(); i++) {
+                        if (studentIds == addStudent.get(i).studentId) {
+                            System.out.println("Student Id :" + addStudent.get(i).studentId + " Student Name:" + addStudent.get(i).studentName);
+                            studentCgpa = addStudent.get(i).cgpa;
+                        } else {
+                            System.out.println("----Enter Correct Student Id-----");
+                        }
+
+                        System.out.print("Enter College Name :");
+                        String collegeNames = s10.nextLine();
+                        for (int j = 0; j < addCollege.size(); j++) {
+                          //Check College Names
+                            if (collegeNames.equalsIgnoreCase(addCollege.get(j).collegeName)) {
+                              // Check CGPA Conditions
+                                if (studentCgpa >= addCollege.get(j).collegeCgpa) {
+                                     // Checking Seat Count
+                                    if (addCollege.get(j).seatCount > 0) {
+                                        System.out.println("--Department name---" + addCollege.get(j).departmentName + "--Sear Count---" + addCollege.get(i).seatCount);
+                                        System.out.print("Enter Department Name :");
+                                        String departmentNames = s11.nextLine(); //select department
+                                        System.out.println("----Successfully completed counselling-----");
+                                     //Decreased Seat count
+                                        int decreaseSeatCount = addCollege.get(j).seatCount - 1;
+                                       System.out.println("---Now available Seat Count----"+decreaseSeatCount);
+                                        int beforeCount =  addCollege.get(j).seatCount;
+                                        //update student record
+
+                                        addStudent.add(new Students(addStudent.get(i).studentId, addStudent.get(i).studentName, addStudent.get(i).registrationNo, addStudent.get(i).cgpa, addStudent.get(i).city
+                                                , addCollege.get(j).collegeName, addCollege.get(j).departmentName));
+
+                                        //Old Student Record Remove
+                                        for (Students stu : addStudent) {
+                                            if (stu.studentId==studentIds) {
+                                                addStudent.remove(stu);
+                                            }
+                                        }
+                                        System.out.println("---After Finish Counselling Student Records-----");
+                                        for (Students display : addStudent){
+                                            System.out.println("Student Name:"+display.studentName +" College Name :"+display.collegeName);
+                                        }
+
+                                       //update college record
+                                        addCollege.add(new College(addCollege.get(j).collegeName, addCollege.get(j).departmentName, decreaseSeatCount, addCollege.get(j).collegeCgpa));
+
+                                        //Old College Remove
+                                        for (College col : addCollege) {
+                                            if (col.collegeName.equalsIgnoreCase(collegeNames)) {
+                                              if(beforeCount==col.seatCount) {
+                                                  addCollege.remove(col);
+                                              }
+                                            }
+                                        }
+                                        System.out.println("-----After Selecting Seat College Status -----");
+                                        for (College clg : addCollege){
+                                        System.out.println("----College Name---"+clg.collegeName+"---Seat Count ----"+clg.seatCount);
+                                        }
+
+                                    } else {
+                                        System.out.println("----No Seat Availabity for this college----");
+                                    }
+                                } else {
+                                    System.out.println("---Not available this college for your cgpa-----");
+                                }
+                            } else {
+                                System.out.println("---Enter Correct College Name-------");
+                            }
+
+                        }
 
 
+                    }
 
-            List<Colleges> collegeList = new ArrayList<>();
-            collegeList.add(new Colleges(1, "RMK College Of Engineering", "Ponneri"));
-            collegeList.add(new Colleges(2, "Anna University CUG", "Guindy"));
-            collegeList.add(new Colleges(3, "Saveetha Engineering College", "Poonthamalli"));
-            for (Colleges s : collegeList) //Iterates as long as there are elements in the list. An object s is created of type Employee class.
-            {
-                System.out.print("ID, collegeName, locationOfTheCollege: ");
-                System.out.println(s.getId() + " " + s.getCollegeName() + " " + s.getLocationOfTheCollege());
+
+                    break;
+                case 4:
+                    c=101;
             }
-
-        List<Departments>departmentList = new ArrayList<>();
-        departmentList.add(new Departments("Mechanical",20,9,"Civil",20,8,"Electrical",15,7,"Information Technology",25,5));
-
-        //for loop new code
-        for (Departments s : departmentList) //Iterates as long as there are elements in the list. An object s is created of type Employee class.
-        {
-            System.out.print("mechDepartment, mechDeptSeatCount,mechCgpa,civilDepartment,civilDeptSeatCount,civilCgpa,electricalDepartment,electricalDeptSeatCount,electricalCgpa, itDepartment,itDeptSeatCount,itCgpa : ");
-            System.out.println(s.getMechDepartment() + " " + s.getMechDeptSeatCount() + " " + s.getMechCgpa()+" " + s.getCivilDepartment()+" " + s.getCivilDeptSeatCount() +" "+ s.getCivilCgpa()+" " + s.getElectricalDepartment()+" "+s.getElectricalDeptSeatCount()+" "+s.getElectricalCgpa()+" "+ s.getItDepartment()+" "+s.getItDeptSeatCount()+ " " +s.getItCgpa());
+            c++;
         }
-
-        //Order by cgpa student list
-        List<Double> studentCgpaOnlyList = new ArrayList<>();
-        List<Students> studentCgpaList = new ArrayList<>();
-
-        for (Students s : studentList) //Iterates as long as there are elements in the list. An object s is created of type Employee class.
-        {
-            studentCgpaOnlyList.add(s.getCgpa());
-        }
-        Collections.sort(studentCgpaOnlyList);
-
-        for (Students s : studentCgpaList) //Iterates as long as there are elements in the list. An object s is created of type Employee class.
-        {
-            studentCgpaList.add(new Students(s.getId(), s.getRegistrationNo(), s.getStudentName(), s.getCgpa(), s.getCity(), s.getGender()));
-        }
-
-        //Enter Student for loop
-        for (int i=0;i<studentCgpaList.size();i++){
-            System.out.println("Student Name..."+studentCgpaList.get(i).getStudentName()+"..CGPA..."+studentCgpaList.get(i).getCgpa());
-
-            Scanner sc1= new Scanner(System.in);
-            System.out.print("Select a College Name: ");
-
-
-        }
-
     }
+
 }
